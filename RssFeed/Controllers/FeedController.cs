@@ -40,6 +40,7 @@ namespace RssFeed.Controllers
                 new XDeclaration("1.0", "utf-8", null),
                 new XElement("rss",
                     new XAttribute("version", "2.0"),
+                    new XAttribute(XNamespace.Xmlns + "content", "http://purl.org/rss/1.0/modules/content/"),
                     new XElement("channel",
                         new XElement("title", "My Feed"),
                         new XElement("link", $"{baseUrl}"),
@@ -48,7 +49,8 @@ namespace RssFeed.Controllers
                             new XElement("item",
                                 new XElement("title", p.Title),
                                 new XElement("link", $"{baseUrl}/{p.Id}"),
-                                new XElement("description", p.Content),
+                                new XElement("description", p.Summary),
+                                new XElement(XName.Get("encoded", "http://purl.org/rss/1.0/modules/content/"), p.Content),
                                 new XElement("pubDate", p.PublishedAt.ToString("R")),
                                 new XElement("guid", $"{baseUrl}/{p.Id}")
                             )

@@ -16,6 +16,11 @@
         public string? Title { get; set; }
 
         /// <summary>
+        /// Summary
+        /// </summary>
+        public string? Summary { get; set; }
+
+        /// <summary>
         /// Content
         /// </summary>
         public string? Content { get; set; }
