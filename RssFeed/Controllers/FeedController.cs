@@ -34,21 +34,23 @@ namespace RssFeed.Controllers
             count = Math.Min(count, 100);
             List<Post> items = [.. Context.RSS.OrderByDescending(p => p.PublishedAt).Take(count)];
 
+            string baseUrl = Configuration["BaseUrl"] ?? "http://localhost:5239";
+
             XDocument feed = new(
                 new XDeclaration("1.0", "utf-8", null),
                 new XElement("rss",
                     new XAttribute("version", "2.0"),
                     new XElement("channel",
                         new XElement("title", "My Feed"),
-                        new XElement("link", "http://localhost:5239"),
+                        new XElement("link", $"{baseUrl}"),
                         new XElement("description", "Latest posts"),
                         items.Select(p =>
                             new XElement("item",
                                 new XElement("title", p.Title),
-                                new XElement("link", $"http://localhost:5239/{p.Id}"),
+                                new XElement("link", $"{baseUrl}/{p.Id}"),
                                 new XElement("description", p.Content),
                                 new XElement("pubDate", p.PublishedAt.ToString("R")),
-                                new XElement("guid", $"http://localhost:5239/{p.Id}")
+                                new XElement("guid", $"{baseUrl}/{p.Id}")
                             )
                         )
                     )
