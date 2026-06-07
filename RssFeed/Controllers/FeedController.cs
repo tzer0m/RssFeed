@@ -49,11 +49,11 @@ namespace RssFeed.Controllers
                         items.Select(p =>
                             new XElement("item",
                                 new XElement("title", p.Title),
-                                new XElement("link", $"{baseUrl}/{p.Id}"),
                                 new XElement("description", p.Summary),
                                 new XElement(XName.Get("encoded", "http://purl.org/rss/1.0/modules/content/"), p.Content),
                                 new XElement("pubDate", p.PublishedAt.ToString("R")),
-                                new XElement("guid", $"{baseUrl}/{p.Id}", new XAttribute("isPermaLink", "false"), p.Id.ToString())
+                                new XElement("guid", new XAttribute("isPermaLink", "false"), p.Id.ToString()
+                                )
                             )
                         )
                     )
