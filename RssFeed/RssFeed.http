@@ -1,0 +1,6 @@
+@RssFeed_HostAddress = http://localhost:5239
+
+GET {{RssFeed_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
