@@ -1,6 +1,6 @@
 # RssFeed
 
-[![Deploy](https://github.com/tzer0m/RssFeed/actions/workflows/deploy.yml/badge.svg)](https://github.com/tzer0m/RssFeed/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/tzer0m/RssFeed/actions/workflows/deploy.yml/badge.svg)](https://github.com/tzer0m/RssFeed/actions/workflows/deploy.yml) [![Dependabot](https://github.com/tzer0m/RssFeed/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/tzer0m/RssFeed/actions/workflows/dependabot/dependabot-updates)
 
 A minimal, self-hosted RSS feed. Post to it via an API-key-protected endpoint, subscribe to it from any RSS reader.
 
