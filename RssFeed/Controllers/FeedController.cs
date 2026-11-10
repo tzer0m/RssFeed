@@ -72,7 +72,7 @@ namespace RssFeed.Controllers
         public async Task<IActionResult> CreatePost([FromBody] Post post)
         {
             string? apiKey = Request.Headers["X-API-Key"].FirstOrDefault();
-            if (apiKey != Configuration["ApiKey"])
+            if (string.IsNullOrEmpty(apiKey) || apiKey != Configuration["ApiKey"])
                 return Unauthorized();
 
             post.PublishedAt = DateTime.UtcNow;

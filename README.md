@@ -19,7 +19,7 @@ There's no UI or auth beyond the single API key — it's designed to be posted t
 
 ## Configuration
 
-Configuration lives in `appsettings.json` (see `appsettings.git.json` for the shape, values stripped):
+Non-secret settings live in `appsettings.json`. `ApiKey` and `ConnectionStrings:DefaultConnection` are left empty there and supplied by .NET user secrets locally and `Environment=` lines in the systemd unit in production:
 
 ```json
 {
